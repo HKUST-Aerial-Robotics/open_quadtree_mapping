@@ -19,7 +19,7 @@ We would like to thank [rpg_open_remode](https://github.com/uzh-rpg/rpg_open_rem
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;d=\sqrt{x^2+y^2+z^2}" title="\Large depth_define" />
 
-**This branch uses opencv totally on CPU. If you need to speed up the image undistort step by using OpenCV with CUDA, please checkout to master branch**
+**This branch uses opencv totally on CPU. If you need to speed up the image undistort step by using OpenCV with CUDA, please checkout to ``master`` branch.**
 
 ## 1.0 Prerequisites
 + **Ubuntu** and **ROS**
