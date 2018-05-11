@@ -19,7 +19,7 @@ We would like to thank [rpg_open_remode](https://github.com/uzh-rpg/rpg_open_rem
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;d=\sqrt{x^2+y^2+z^2}" title="\Large depth_define" />
 
-## 1. Prerequisites
+## 1.0 Prerequisites
 + **Ubuntu** and **ROS**
 
 We recommend Ubuntu 16.04 with ROS Kinect. To run on ROS Indigo and Ubuntu 14.04, the code needs to be changed because ROS Indigo uses OpenCV 2.4. A future update will solve the problem.
@@ -97,8 +97,9 @@ Using CUDA supported OpenCV with ROS may cause some problems from ``cv_bridge``.
 cd ~/catkin_ws/src
 git clone https://github.com/ros-perception/vision_opencv.git
 cd vision_opencv
+cd cv_bridge
 ```
-now modify the CMaleLists.txt. Replace
+now modify the CMakeLists.txt. Replace
 ```
 find_package(OpenCV 3 REQUIRED
   COMPONENTS

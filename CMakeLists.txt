@@ -48,10 +48,8 @@ list(APPEND LINK_LIBS
   ${Boost_LIBRARIES}
 )
 
-if(BUILD_ROS_NODE)
-  include_directories(${catkin_INCLUDE_DIRS})
-  list(APPEND LINK_LIBS ${catkin_LIBRARIES})
-endif(BUILD_ROS_NODE)
+include_directories(${catkin_INCLUDE_DIRS})
+list(APPEND LINK_LIBS ${catkin_LIBRARIES})
 
 cuda_add_executable(open_quadtree_mapping_node
     src/check_cuda_device.cu
