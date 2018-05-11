@@ -1,11 +1,13 @@
 # QuadtreeMapping
 ## A Real-time Monocular Dense Mapping System
 
-This is a monocular dense mapping system following the IEEE Robotics and Automation Letters (RA-L) submission **Quadtree-accelerated Real-time Monocular Dense Mapping**, Kaixuan Wang, Wenchao Ding, Shaojie Shen. Give a localized monocular camera, the system can generate dense depth maps in real-time using portable devices. The generated depth maps can be used to reconstruct the environment or be used for UAV autonomous flight.
+This is a monocular dense mapping system following the IEEE Robotics and Automation Letters (RA-L) submission **Quadtree-accelerated Real-time Monocular Dense Mapping**, Kaixuan Wang, Wenchao Ding, Shaojie Shen. Give a localized monocular camera, the system can generate dense depth maps in real-time using portable devices. The generated depth maps can be used to reconstruct the environment or be used for UAV autonomous flight. An example of real-time reconstruction is
+<img src="fig/QuadtreeMapping.png" alt="mapping example" width = "793" height = "300">
+Red line is the camera trajectory.
 
 A video can be used to illustrate the pipeline and the performance of our system:
 
-<a href="https://youtu.be/3gD6_UKmRdA" target="_blank"><img src="http://https://youtu.be/3gD6_UKmRdA/0.jpg" 
+<a href="https://youtu.be/3gD6_UKmRdA" target="_blank"><img src="fig/cover.jpg" 
 alt="video" width="240" height="180" border="10" /></a>
 
 We would like to thank [rpg_open_remode](https://github.com/uzh-rpg/rpg_open_remode) for their open source work. The project inspires us, and the system architecture helps we build QuadtreeMapping.
@@ -15,15 +17,15 @@ We would like to thank [rpg_open_remode](https://github.com/uzh-rpg/rpg_open_rem
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;d=\sqrt{x^2+y^2+z^2}" title="\Large depth_define" />
 
 ## 1. Prerequisites
-+ 1.1 **Ubuntu** and **ROS**
++ **Ubuntu** and **ROS**
 
 We recommend Ubuntu 16.04 with ROS Kinect. To run on ROS Indigo on Ubuntu 14.04, the code need to changed because ROS Indigo uses OpenCV 2.4.
 
-+ 1.2 **CUDA**
++ **CUDA**
 
 The system uses GPU to parallel most of the computation. You don't need a powerful GPU to run the code but it must be a Nvidia GPU that support CUDA. We use CUDA 8.0 to run the system. CUDA 9.0 has not been tested yet.
 
-+ 1.3 **OpenCV**
++ **OpenCV**
 
 The system needs OpenCV 3.2 that is compiled with CUDA. This means that the default OpenCV from ROS is not usable. You can compile the OpenCV and install it outside the system.
 
@@ -110,4 +112,4 @@ include(PATH_TO/OpenCVConfig.cmake)
 where ``PATH_TO/OpenCVConfig.cmake`` depends on your CUDA supported OpenCV.
 
 ## 6.0 future update
-We will modify a version of QuadtreeMap so that you do not need a CUDA supported OpenCV. However, the drawback is that undistorting and resizing images on CPU may cause more time than on GPU.
+We will modify a version of QuadtreeMap. The modified version will support both ROS Indigo and ROS kinect without compiling OpenCV yourself. However, the drawback is that undistorting and resizing images on CPU may cause more time than on GPU.
