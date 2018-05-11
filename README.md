@@ -1,7 +1,9 @@
 # QuadtreeMapping
 ## A Real-time Monocular Dense Mapping System
 
-This is a monocular dense mapping system following the IEEE Robotics and Automation Letters (RA-L) submission **Quadtree-accelerated Real-time Monocular Dense Mapping**, Kaixuan Wang, Wenchao Ding, Shaojie Shen. Give a localized monocular camera, the system can generate dense depth maps in real-time using portable devices. The generated depth maps can be used to reconstruct the environment or be used for UAV autonomous flight. An example of real-time reconstruction is
+This is a monocular dense mapping system following the IEEE Robotics and Automation Letters (RA-L) submission **Quadtree-accelerated Real-time Monocular Dense Mapping**, Kaixuan Wang, Wenchao Ding, Shaojie Shen.
+
+Give a localized monocular camera, the system can generate dense depth maps in real-time using portable devices. The generated depth maps can be used to reconstruct the environment or be used for UAV autonomous flight. An example of real-time reconstruction is
 <img src="fig/QuadtreeMapping.png" alt="mapping example" width = "793" height = "300">
 
 Red line is the camera trajectory.
@@ -62,7 +64,7 @@ Before running the system, please take a look at the parameters in the launch/ex
 The input of QuadtreeMapping is synchronized Image (```sensor_msgs::Image```) and Pose (```geometry_msgs::PoseStamped```). Make sure the ROS messages are the correct type and the timestamps are the same. Images and poses at different frequencies is ok. For example, the system will filter 30Hz images and 10Hz poses into 10Hz image-pose pairs as input.
 
 ### run the example
-We provide an example of a hand-held camera walking in a garden. The ego-motion is estimated using [VINS-MONO](https://github.com/HKUST-Aerial-Robotics/VINS-Mono).
+We provide an example of a hand-held camera walking in a garden. We provide the [link](https://www.dropbox.com/s/xuae1kxuulcf11z/open_quadtree_mapping.bag?dl=0) to download the bag. The ego-motion is estimated using [VINS-MONO](https://github.com/HKUST-Aerial-Robotics/VINS-Mono).
 
 To run the example, just
 ```
@@ -113,4 +115,5 @@ include(PATH_TO/OpenCVConfig.cmake)
 where ``PATH_TO/OpenCVConfig.cmake`` depends on your CUDA supported OpenCV.
 
 ## 6.0 future update
-We will modify a version of QuadtreeMap. The modified version will support both ROS Indigo and ROS Kinect without compiling OpenCV yourself. However, the drawback is that undistorting and resizing images on CPU may cause more time than on GPU.
++ We will modify a version of QuadtreeMap. The modified version will support both ROS Indigo and ROS Kinect without compiling OpenCV yourself. However, the drawback is that undistorting and resizing images on CPU may cause more time than on GPU.
++ modified open chisel will be open source soon.
