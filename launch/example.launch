@@ -1,0 +1,24 @@
+<launch>
+  <node pkg="open_quadtree_mapping" type="open_quadtree_mapping_node" name="open_quadtree_mapping" clear_params="true" output="screen">
+
+    <param name="cam_width" value="752" />
+    <param name="cam_height" value="480" />
+    <param name="cam_fx" value="3.6537093297021136e+02" />
+    <param name="cam_cx" value="3.6964744957606678e+02" />
+    <param name="cam_fy" value="3.6507591213493185e+02" />
+    <param name="cam_cy" value="2.4095181606217392e+02" />
+    <param name="cam_k1" value="-2.6308981682861932e-01"/>
+    <param name="cam_k2" value="5.6218950573062511e-02"/>
+    <param name="cam_r1" value="-1.4306684839826532e-03"/>
+    <param name="cam_r2" value="-2.4563568486974763e-04"/>
+    <!--downsample factor: 0 ~ 1-->
+    <param name="downsample_factor" value="1"/>
+    <param name="semi2dense_ratio" value="1"/>
+
+    <!-- if using synchronize image and pose-->
+    <remap from="~image" to="/mv_25001498/image_raw" />
+    <remap from="~posestamped" to="/vins_estimator/camera_pose" />
+
+
+  </node>   
+</launch>
