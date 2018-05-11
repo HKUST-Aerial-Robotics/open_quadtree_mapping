@@ -33,8 +33,8 @@
 
 #include <opencv2/opencv.hpp>
 // #include <opencv2/gpu/gpu.hpp>//for opencv2
-#include <opencv2/cudaarithm.hpp>
-#include <opencv2/cudawarping.hpp>
+// #include <opencv2/cudaarithm.hpp>
+// #include <opencv2/cudawarping.hpp>
 
 namespace quadmap
 {
@@ -57,10 +57,10 @@ public:
   void get_result(cv::Mat &depth, cv::Mat &debug, cv::Mat &reference);
 private:
   bool add_frames(
-    cv::cuda::GpuMat &input_image,
+    cv::Mat &input_image,
     const SE3<float> T_curr_world);
   void add_income_image(
-    const cv::cuda::GpuMat &input_image,
+    const cv::Mat &input_image,
     const SE3<float> T_world);
   void download_output();
 
@@ -121,10 +121,10 @@ private:
   std::deque<FrameElement> framelist_host;
 
   //used for gpu remap
-  cv::cuda::GpuMat remap_1, remap_2;
-  cv::cuda::GpuMat input_image;
-  cv::cuda::GpuMat input_float;
-  cv::cuda::GpuMat undistorted_image;
+  cv::Mat remap_1, remap_2;
+  cv::Mat input_image;
+  cv::Mat input_float;
+  cv::Mat undistorted_image;
 
   //result
   cv::Mat cv_output;

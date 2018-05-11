@@ -74,23 +74,23 @@ quadmap::SeedMatrix::~SeedMatrix()
 
 void quadmap::SeedMatrix::set_remap(cv::Mat _remap_1, cv::Mat _remap_2)
 {
-  remap_1.upload(_remap_1);
-  remap_2.upload(_remap_2);
+  remap_1 = _remap_1;
+  remap_2 = _remap_2;
   printf("has success set cuda remap.\n");
 }
 bool quadmap::SeedMatrix::input_raw(cv::Mat raw_mat, const SE3<float> T_curr_world)
 {
   std::clock_t start = std::clock();  
-  input_image.upload(raw_mat);
-  cv::cuda::remap(input_image, undistorted_image, remap_1, remap_2, cv::INTER_LINEAR, cv::BORDER_CONSTANT);
-  undistorted_image.download(income_undistort);
-  undistorted_image.convertTo(input_float,CV_32F);
+  input_image = raw_mat;
+  cv::remap(input_image, undistorted_image, remap_1, remap_2, cv::INTER_LINEAR, cv::BORDER_CONSTANT);
+  income_undistort = undistorted_image;
+  undistorted_image.convertTo(input_float, CV_32F);
   printf("cuda prepare the image cost %f ms \n", ( std::clock() - start ) / (double) CLOCKS_PER_SEC * 1000);
   return add_frames(input_float, T_curr_world);
 }
-void quadmap::SeedMatrix::add_income_image(const cv::cuda::GpuMat &input_image, const SE3<float> T_world)
+void quadmap::SeedMatrix::add_income_image(const cv::Mat &input_image, const SE3<float> T_world)
 {
-  income_image.setDevData(input_image);
+  income_image.setDevData(reinterpret_cast<float *>(input_image.data));
   income_transform = T_world;
   generate_gradient(income_image, income_gradient);
 }
@@ -104,7 +104,7 @@ void quadmap::SeedMatrix::set_income_as_keyframe()
 }
 
 bool quadmap::SeedMatrix::add_frames(
-    cv::cuda::GpuMat &input_image,
+    cv::Mat &input_image,
     const SE3<float> T_curr_world)
 {
   std::clock_t start = std::clock();

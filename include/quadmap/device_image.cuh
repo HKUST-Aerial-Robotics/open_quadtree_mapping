@@ -24,8 +24,8 @@
 
 #include <opencv2/opencv.hpp>
 // #include <opencv2/gpu/gpu.hpp>//for opencv2
-#include <opencv2/cudaarithm.hpp>
-#include <opencv2/cudawarping.hpp>
+// #include <opencv2/cudaarithm.hpp>
+// #include <opencv2/cudawarping.hpp>
 
 namespace quadmap
 {
@@ -152,36 +152,6 @@ struct DeviceImage
           stream);
     if(err != cudaSuccess)
       throw CudaException("Image: unable to copy data from host to device.", err);
-  }
-  
-  __host__
-  void setDevData(const cv::cuda::GpuMat &cv_image)
-  {
-    assert(width  == cv_image.cols && height == cv_image.rows);    
-    const cudaError err = cudaMemcpy2D( data,
-                                        pitch,
-                                        cv_image.data,
-                                        cv_image.step,
-                                        width*sizeof(ElementType),
-                                        height,
-                                        cudaMemcpyDeviceToDevice);
-    if(err != cudaSuccess)
-      throw CudaException("Image: unable to copy cv gpu from host to device.", err);
-  }
-  __host__
-  void setDevData(const cv::cuda::GpuMat &cv_image, const cudaStream_t &stream)
-  {
-    assert(width  == cv_image.cols && height == cv_image.rows);    
-    const cudaError err = cudaMemcpy2DAsync( data,
-                                        pitch,
-                                        cv_image.data,
-                                        cv_image.step,
-                                        width*sizeof(ElementType),
-                                        height,
-                                        cudaMemcpyDeviceToDevice,
-                                        stream);
-    if(err != cudaSuccess)
-      throw CudaException("Image: unable to copy cv gpu from host to device.", err);
   }
 
   /// Download the data from the device memory to aligned_data_row_major, a preallocated array in host memory
