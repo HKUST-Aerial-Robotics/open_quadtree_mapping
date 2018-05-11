@@ -19,6 +19,8 @@ We would like to thank [rpg_open_remode](https://github.com/uzh-rpg/rpg_open_rem
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;d=\sqrt{x^2+y^2+z^2}" title="\Large depth_define" />
 
+**This branch uses opencv with CUDA. If you do not care about speed and wants a easy install, plese check out to ``no_cudaopencv`` branch**
+
 ## 1.0 Prerequisites
 + **Ubuntu** and **ROS**
 
@@ -116,5 +118,4 @@ include(PATH_TO/OpenCVConfig.cmake)
 where ``PATH_TO/OpenCVConfig.cmake`` depends on your CUDA supported OpenCV.
 
 ## 6.0 future update
-+ We will modify a version of QuadtreeMap. The modified version will support both ROS Indigo and ROS Kinect without compiling OpenCV yourself. However, the drawback is that undistorting and resizing images on CPU may cause more time than on GPU.
 + modified open chisel will be open source soon.
