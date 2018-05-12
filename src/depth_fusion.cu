@@ -125,7 +125,7 @@ __global__ void hole_filling(DeviceImage<int> *transform_table_devptr)
   const int width = transform_table_devptr->width;
   const int height = transform_table_devptr->height;
 
-  if(x >= width || y >= height)
+  if(x >= width - 1 || y >= height - 1 || x <= 1 || y <= 1)
     return;
 
   const int transform_i = transform_table_devptr->atXY(x,y);
