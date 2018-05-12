@@ -573,11 +573,11 @@ void quadmap::SeedMatrix::fuse_output_depth()
 
   SE3<float> last_to_income = income_transform * this_fuse_worldpose.inv();
   fuse_transform<<<image_grid, image_block>>>(depth_fuse_seeds.dev_ptr, transform_table.dev_ptr, last_to_income, camera);
-  cudaDeviceSynchronize();
+  // cudaDeviceSynchronize();
 
   //fill holes
   hole_filling<<<image_grid, image_block>>>(transform_table.dev_ptr);
-  cudaDeviceSynchronize();
+  // cudaDeviceSynchronize();
 
   //update the map
   fuse_currentmap<<<image_grid, image_block>>>(
