@@ -15,11 +15,6 @@ SET(CUDA_PROPAGATE_HOST_FLAGS OFF)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-# NCC patch size (must be odd integer, typical values: 3, 5, 7)
-# ADD_DEFINITIONS(-DRMD_CORR_PATCH_SIDE=5)
-# Maximum extent of epipolar line search in pixels
-# ADD_DEFINITIONS(-DRMD_MAX_EXTENT_EPIPOLAR_SEARCH=100)
-
 find_package(OpenCV REQUIRED)
 find_package(Eigen REQUIRED)
 find_package(Boost REQUIRED COMPONENTS system filesystem)
