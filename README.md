@@ -24,7 +24,7 @@ We would like to thank [rpg_open_remode](https://github.com/uzh-rpg/rpg_open_rem
 ## 1.0 Prerequisites
 + **Ubuntu** and **ROS**
 
-We recommend Ubuntu 16.04 with ROS Kinect. To run on ROS Indigo and Ubuntu 14.04, the code needs to be changed because ROS Indigo uses OpenCV 2.4. A future update will solve the problem.
+We recommend Ubuntu 16.04 with ROS Kinect. To run on ROS Indigo and Ubuntu 14.04, the code needs to be changed because ROS Indigo uses OpenCV 2.4.
 
 + **CUDA**
 
@@ -32,7 +32,7 @@ The system uses GPU to parallel most of the computation. You don't need a powerf
 
 + **OpenCV**
 
-The system needs OpenCV 3.2 that is compiled with CUDA. This means that the default OpenCV from ROS is not usable. You can compile the OpenCV and install it outside the system. A future update will solve the problem that you do not have to compile OpenCV with CUDA.
+The system needs OpenCV 3.2 that is compiled with CUDA. This means that the default OpenCV from ROS is not usable. You can compile the OpenCV and install it outside the system.
 
 ## 2.0 install
 Since the GPU device varies from each one to another, the CMakeLists.txt needs to be changed accordingly. 
