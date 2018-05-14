@@ -24,7 +24,7 @@ We would like to thank [rpg_open_remode](https://github.com/uzh-rpg/rpg_open_rem
 ## 1.0 Prerequisites
 + **Ubuntu** and **ROS**
 
-Both Ubuntu 16.04 with ROS Kinect and Ubuntu 14.04 with ROS Indigo is ok.
+Both Ubuntu 16.04 with ROS Kinect and Ubuntu 14.04 with ROS Indigo are ok.
 
 + **CUDA**
 
