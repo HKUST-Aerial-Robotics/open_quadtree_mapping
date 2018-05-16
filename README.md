@@ -87,8 +87,8 @@ To run with other data, you can modify the launch file according to your setting
 + Rotation is not good for the system. Rotation reduces the number of frames QuadtreeMapping can use to estimate the depth map.
 + A good camera is required. A good choice is an industry camera that has a global shutter and is set to a fixed exposure time. Also, images should have a balanced contrast, too bright or too dark is not good.
 
-## 4.0 fuse into a global map
+## 5.0 fuse into a global map
 Quadtree publishes depth maps and the corresponding intensity images. You can fuse them using the tool you like. We use a modified [open chisel](https://github.com/personalrobotics/OpenChisel) for 3D reconstruction and use a GPU-based TSDF to support autonomous flight.
 
-## 5.0 future update
+## 6.0 future update
 + modified open chisel will be open source soon.
