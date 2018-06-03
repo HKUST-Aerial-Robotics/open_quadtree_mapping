@@ -36,7 +36,7 @@ quadmap::Depthmap::Depthmap(size_t width,
   seeds_.set_remap(remap_1, remap_2);
   seeds_.set_semi2dense_ratio(semi2dense_ratio);
 
-  printf("inremap_2itial the seed (%d x %d) fx: %f, fy: %f, cx: %f, cy: %f.\n", width, height, fx, fy, cx, fy);
+  printf("inremap_2itial the seed (%d x %d) fx: %f, fy: %f, cx: %f, cy: %f.\n", width, height, fx, fy, cx, cy);
 }
 
 bool quadmap::Depthmap::add_frames( const cv::Mat &img_curr,
