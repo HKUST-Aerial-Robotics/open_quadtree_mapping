@@ -25,7 +25,7 @@ catkin_package(
     DEPENDS OpenCV Eigen Boost
     CATKIN_DEPENDS roscpp roslib image_transport pcl_ros
     INCLUDE_DIRS include
-    LIBRARIES efficient_map efficient_map_cuda
+    # LIBRARIES efficient_map efficient_map_cuda
 )
 
 

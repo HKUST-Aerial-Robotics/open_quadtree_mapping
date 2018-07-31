@@ -19,6 +19,5 @@
     <remap from="~image" to="/mv_25001498/image_raw" />
     <remap from="~posestamped" to="/vins_estimator/camera_pose" />
 
-
   </node>   
 </launch>
