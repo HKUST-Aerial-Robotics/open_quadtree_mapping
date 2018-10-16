@@ -1,7 +1,7 @@
 # QuadtreeMapping
 ## A Real-time Monocular Dense Mapping System
 
-This is a monocular dense mapping system following the IEEE Robotics and Automation Letters (RA-L) submission **Quadtree-accelerated Real-time Monocular Dense Mapping**, Kaixuan Wang, Wenchao Ding, Shaojie Shen.
+This is a monocular dense mapping system following the IROS 2018  **Quadtree-accelerated Real-time Monocular Dense Mapping**, Kaixuan Wang, Wenchao Ding, Shaojie Shen.
 
 Given a localized monocular camera, the system can generate dense depth maps in real-time using portable devices. The generated depth maps can be used to reconstruct the environment or be used for UAV autonomous flight. An example of real-time reconstruction is
 <img src="fig/QuadtreeMapping.png" alt="mapping example" width = "793" height = "300">
